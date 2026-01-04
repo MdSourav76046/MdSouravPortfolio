@@ -1,0 +1,209 @@
+.experiences {
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+
+:root.light-theme .experiences {
+    background: #fafbfc;
+}
+
+.experiences-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    animation: slideInDown 1s ease-out;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.timeline-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -3.5rem;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: #667eea;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #667eea20;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.experience-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 0 20px rgba(102, 126, 234, 0.1);
+}
+
+.experience-card:hover::before {
+    transform: scaleY(1);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.experience-position {
+    font-size: 1.4rem;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.experience-card:hover .experience-position {
+    color: #667eea;
+}
+
+.experience-company {
+    font-size: 1.1rem;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.experience-duration {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover .experience-duration {
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transform: scale(1.05);
+}
+
+.experience-description {
+    list-style: none;
+    padding: 0;
+}
+
+.experience-description li {
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.experience-description li:hover {
+    color: #0f172a;
+    padding-left: 2rem;
+}
+
+.experience-description li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+@media (max-width: 640px) {
+    .experiences {
+        padding: 4rem 1rem;
+        min-height: auto;
+        overflow-x: hidden;
+    }
+
+    .timeline {
+        padding-left: 1.75rem;
+    }
+
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-dot {
+        left: -2rem;
+        width: 12px;
+        height: 12px;
+    }
+
+    .experience-card {
+        padding: 1.35rem;
+        border-radius: 12px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .experience-duration {
+        align-self: flex-start;
+        font-size: 0.85rem;
+        padding: 0.35rem 0.8rem;
+    }
+
+    .experience-position {
+        font-size: 1.25rem;
+    }
+
+    .experience-company {
+        font-size: 1rem;
+    }
+
+    .experience-description li {
+        line-height: 1.6;
+        margin-bottom: 0.6rem;
+    }
+}
